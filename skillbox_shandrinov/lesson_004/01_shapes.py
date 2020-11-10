@@ -27,8 +27,48 @@ import simple_draw as sd
 # sd.line()
 # Результат решения см lesson_004/results/exercise_01_shapes.jpg
 
-# TODO здесь ваш код
 
+def triangle(point, angle=0, length=100):
+    for ang in range(angle, 241, 120):
+        v1 = sd.get_vector(start_point=point, angle=ang, length=length, width=1)
+        v1.draw()
+        point = v1.end_point
+
+
+def square(point, angle=0, length=100):
+    for ang in range(angle, 360, 90):
+        v1 = sd.get_vector(start_point=point, angle=ang, length=length, width=2)
+        v1.draw()
+        point = v1.end_point
+
+
+def pentagon(point, angle=0, length=100):
+    for ang in range(angle, 360, 72):
+        v1 = sd.get_vector(start_point=point, angle=ang, length=length, width=5)
+        v1.draw()
+        point = v1.end_point
+
+
+def hexagon(point, angle=0, length=100):
+    for ang in range(angle, 360, 60):
+        v1 = sd.get_vector(start_point=point, angle=ang, length=length, width=5)
+        v1.draw()
+        point = v1.end_point
+
+
+point_triangle = sd.get_point(50, 50)
+triangle(point=point_triangle)
+
+point_square = sd.get_point(400, 50)
+square(point=point_square)
+
+point_pentagon = sd.get_point(50, 400)
+pentagon(point=point_pentagon)
+
+point_hexagon = sd.get_point(400, 400)
+hexagon(point=point_hexagon)
+
+sd.pause()
 # Часть 1-бис.
 # Попробуйте прикинуть обьем работы, если нужно будет внести изменения в этот код.
 # Скажем, связывать точки не линиями, а дугами. Или двойными линиями. Или рисовать круги в угловых точках. Или...
@@ -52,5 +92,40 @@ import simple_draw as sd
 # Поэтому среди программистов есть принцип D.R.Y. https://clck.ru/GEsA9
 # Будьте ленивыми, не используйте копи-пасту!
 
+
+def figure(point, angle, angle_end, step, length=100):
+    for ang in range(angle, angle_end, step):
+        v1 = sd.get_vector(start_point=point, angle=ang, length=length, width=5)
+        v1.draw()
+        point = v1.end_point
+
+
+def triangle(point, angle=0, length=100):
+    figure(point=point, angle=angle, angle_end=angle + 241, step=120, length=length)
+
+
+def square(point, angle=0, length=100):
+    figure(point=point, angle=angle, angle_end=angle + 360, step=90, length=length)
+
+
+def pentagon(point, angle=0, length=100):
+    figure(point=point, angle=angle, angle_end=angle + 360, step=72, length=length)
+
+
+def hexagon(point, angle=0, length=100):
+    figure(point=point, angle=angle, angle_end=angle + 360, step=60, length=length)
+
+
+point_triangle = sd.get_point(50, 50)
+triangle(point=point_triangle)
+
+point_square = sd.get_point(400, 50)
+square(point=point_square)
+
+point_pentagon = sd.get_point(50, 400)
+pentagon(point=point_pentagon)
+
+point_hexagon = sd.get_point(400, 400)
+hexagon(point=point_hexagon)
 
 sd.pause()
