@@ -15,4 +15,11 @@
 # Создать рецепт своего бургера, по вашему вкусу.
 # Если не хватает инградиентов - создать соответствующие функции в модуле my_burger
 
-# TODO здесь ваш код
+from my_burger import *
+
+print('Рецепт двойного чизбургера')
+receipt = []
+food = [bread, meat, cucumber, tomato, mayonnaise, cheese]
+for i in food:
+    i(receipt)
+print('Вы приготовили чизбургер')
