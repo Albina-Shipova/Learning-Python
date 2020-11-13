@@ -28,9 +28,9 @@ import simple_draw as sd
 # Результат решения см lesson_004/results/exercise_01_shapes.jpg
 
 
-def triangle(point, angle=0, length=100):
+def triangle(point, angle=0, length=100, width=2):
     for ang in range(angle, 241, 120):
-        v1 = sd.get_vector(start_point=point, angle=ang, length=length, width=1)
+        v1 = sd.get_vector(start_point=point, angle=ang, length=length, width=width)
         v1.draw()
         point = v1.end_point
 
