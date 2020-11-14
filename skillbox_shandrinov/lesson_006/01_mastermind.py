@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import mastermind_engine as me
+
 # Игра «Быки и коровы»
 # https://goo.gl/Go2mb9
 #
@@ -42,5 +44,20 @@
 # Движок игры реализует только саму функциональность игры.
 # Это пример применения SOLID принципа (см https://goo.gl/GFMoaI) в архитектуре программ.
 # Точнее, в этом случае важен принцип единственной ответственности - https://goo.gl/rYb3hT
+print('Сыграем в быки и коровы! Я загадываю четыре неповторяющихся цифры')
+me.number_guess()
+count = 1
+while True:
+    input_number = input('Введите вариант четырехзначного числа (все цифры различны): ')
+    res = me.check_number(input_number=input_number)
+    print(res)
+    if res['быки'] == 4:
+        print('Угадали! Число попыток: ', count)
+        y_n = input('Хотите еще партию?(Да/Нет)')
+        if y_n.lower() == 'нет':
+            break
+        else:
+            me.number_guess()
+    else:
+        count += 1
 
-# TODO здесь ваш код...
