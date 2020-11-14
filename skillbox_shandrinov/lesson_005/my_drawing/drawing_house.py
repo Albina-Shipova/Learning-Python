@@ -7,16 +7,16 @@ screen_height = 600
 sd.set_screen_size(width=screen_width, height=screen_height)
 
 
-def house(house_height=175, house_weight=275,
+def house(house_height=175, house_width=275,
           x_screen_shift=400, y_screen_shift=50,
           roof_color=sd.COLOR_RED, lines_color=sd.COLOR_ORANGE):
     house_start_point = sd.get_point(x_screen_shift, y_screen_shift)
-    house_end_point = sd.get_point(x_screen_shift + house_weight, y_screen_shift + house_height)
+    house_end_point = sd.get_point(x_screen_shift + house_width, y_screen_shift + house_height)
 
     # рисуем крышу дома
     roof_pointlist = [
         sd.get_point(x_screen_shift, y_screen_shift + house_height),
-        sd.get_point(x_screen_shift + house_weight / 2, y_screen_shift + house_height + house_height / 3),
+        sd.get_point(x_screen_shift + house_width / 2, y_screen_shift + house_height + house_height / 3),
         house_end_point,
     ]
     sd.polygon(point_list=roof_pointlist, color=roof_color, width=0)
@@ -27,7 +27,7 @@ def house(house_height=175, house_weight=275,
     # число кирпичей по горизонтали и вертикали:
     brick_quantity_x = 8
     brick_quantity_y = 8
-    brick_length = house_weight / brick_quantity_x
+    brick_length = house_width / brick_quantity_x
     brick_height = house_height / brick_quantity_y
     for shift_brick_y in range(0, int(house_height / brick_height)):
         y = shift_brick_y * brick_height
@@ -43,10 +43,10 @@ def house(house_height=175, house_weight=275,
             sd.rectangle(left_bottom=left_b, right_top=right_t, color=lines_color, width=1)
 
 
-def window(house_height=175, house_weight=275,
+def window(house_height=175, house_width=275,
            x_screen_shift=400, y_screen_shift=50, color=sd.COLOR_DARK_PURPLE):
-    window_left_bottom = sd.get_point(x_screen_shift + house_weight / 3, y_screen_shift + house_height / 3)
-    window_right_top = sd.get_point(x_screen_shift + house_weight / 3 * 2, y_screen_shift + house_height / 3 * 2)
+    window_left_bottom = sd.get_point(x_screen_shift + house_width / 3, y_screen_shift + house_height / 3)
+    window_right_top = sd.get_point(x_screen_shift + house_width / 3 * 2, y_screen_shift + house_height / 3 * 2)
     sd.rectangle(window_left_bottom, window_right_top, color=color, width=0)
     sd.rectangle(window_left_bottom, window_right_top, color=color, width=1)
 

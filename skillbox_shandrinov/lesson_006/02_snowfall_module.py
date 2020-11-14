@@ -12,9 +12,9 @@ import snowfall as sf
 #
 # В текущем модуле реализовать главный цикл падения снежинок,
 # обращаясь ТОЛЬКО к функциям модуля snowfall
-screen_weight = 1200
+screen_width = 1200
 screen_height = 600
-sd.set_screen_size(screen_weight, screen_height)
+sd.set_screen_size(screen_width, screen_height)
 
 # создать_снежинки(N)
 snow_count = 20

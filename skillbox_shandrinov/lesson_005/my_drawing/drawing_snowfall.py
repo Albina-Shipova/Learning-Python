@@ -5,17 +5,6 @@ import random
 
 
 def snow(snow_dict, stop_snow_x=sd.resolution[0], stop_snow_y=70, delta=0):
-    # snow_dict = {}
-    # for i in range(n):
-    #     snow_dict[i] = {'x': sd.random_number(0, stop_snow_x),
-    #                     'y': sd.random_number(750, 800),
-    #                     'length': sd.random_number(5, 10),
-    #                     'color': sd.COLOR_WHITE,
-    #                     'factor_a': random.uniform(0.1, 0.8),
-    #                     'factor_b': random.uniform(0.1, 0.4),
-    #                     'factor_c': sd.random_number(1, 60)
-    #                     }
-
     for _, snow_param in snow_dict.items():
         point1 = sd.get_point(snow_param['x'], snow_param['y'])
         sd.snowflake(center=point1, length=snow_param['length'], color=sd.background_color,
